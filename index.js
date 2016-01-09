@@ -9,7 +9,7 @@ var tempDir = './temp/';
 var found = false;
 var resolveCount = 0;
 var results = [];
-var hosts = ['google.com', 'yahoo.com', 'nfl.com', 'msn.com', 'twitter.com', 'github.com', 'disneyworld.disney.go.com'];
+var hosts = ['google.com', 'yahoo.com', 'nfl.com', 'msn.com', 'twitter.com', 'github.com'];
 
 createTempDirectory();
 for (var i = 0; i < hosts.length; i++) {
