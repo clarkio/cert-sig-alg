@@ -1,0 +1,25 @@
+{
+  "name": "cert-sig-alg",
+  "version": "1.0.0",
+  "description": "Retrieves the certificate signature algorithm for a set of hosts using OpenSSL",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^1.5.1",
+    "bluebird": "^3.1.1",
+    "openssl-wrapper": "^0.2.3",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "openssl",
+    "certificate",
+    "cert",
+    "signature",
+    "algorithm"
+  ],
+  "author": "Brian Clark",
+  "license": "MIT"
+}
