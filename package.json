@@ -12,7 +12,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --debug-brk index.js"
+    "start": "node --debug-brk index.js"
   },
   "keywords": [
     "openssl",
