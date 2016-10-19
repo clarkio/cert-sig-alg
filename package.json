@@ -24,7 +24,7 @@
   "author": "Brian Clark",
   "license": "MIT",
   "engines": {
-    "node": "6.8.1",
+    "node": "6.7.0",
     "npm": "3.10.8"
   }
 }
