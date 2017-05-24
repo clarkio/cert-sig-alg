@@ -9,12 +9,28 @@ var tempDir = './temp/';
 var found = false;
 var resolveCount = 0;
 var results = [];
-var hosts = ['google.com', 'yahoo.com', 'nfl.com', 'msn.com', 'twitter.com', 'github.com', 'facebook.com'];
+var hosts = [];
+// var hosts = ['google.com', 'yahoo.com', 'nfl.com', 'msn.com', 'twitter.com', 'github.com', 'facebook.com'];
 
-createTempDirectory();
-for (var i = 0; i < hosts.length; i++) {
-    getCertificateSignatureAlgorithmAsync(hosts[i])
-        .then(checkIfCompletelyDone);
+module.exports = hostsToCheck => {
+    // console.log(typeof hosts);
+    // var hosts = typeof hosts === 'Array' ? hosts : [];
+    hosts = hostsToCheck;
+    createTempDirectory()
+        .then(function (success) {
+            return checkHosts(hosts);
+        })
+        .catch(function (error) {
+            console.log(error);
+            return;
+        });
+};
+
+function checkHosts(hosts) {
+    for (var i = 0; i < hosts.length; i++) {
+        getCertificateSignatureAlgorithmAsync(hosts[i])
+            .then(checkIfCompletelyDone);
+    }
 }
 
 function checkIfCompletelyDone() {
@@ -45,7 +61,7 @@ function getCertificateSignatureAlgorithmAsync(host) {
         })
         .then(readCertificate)
         .then(function (fileBuffer) {
-            return parseCertificateForSignatureAlgorithm(fileBuffer, host, i);
+            return parseCertificateForSignatureAlgorithm(fileBuffer, host);
         })
         .then(function (signatureAlgorithm) {
             var hash = {};
@@ -53,6 +69,10 @@ function getCertificateSignatureAlgorithmAsync(host) {
             results.push(hash);
             console.log('completed processing ' + host);
             deferred.resolve();
+        })
+        .catch(function (error) {
+            console.log(error);
+            deferred.reject(error);
         });
     return deferred.promise;
 }
@@ -87,7 +107,7 @@ function readCertificate(file) {
     return deferred.promise;
 }
 
-function parseCertificateForSignatureAlgorithm(fileBuffer, element, index) {
+function parseCertificateForSignatureAlgorithm(fileBuffer, element) {
     var deferred = Q.defer();
     var found = false;
     var signatureAlgorithm;
