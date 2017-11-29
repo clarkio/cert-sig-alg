@@ -9,9 +9,11 @@
     "openssl-wrapper": "^0.3.0",
     "q": "^1.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "snyk": "^1.52.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "snyk test",
     "start": "PORT=5858 node --debug-brk index.js"
   },
   "keywords": [
