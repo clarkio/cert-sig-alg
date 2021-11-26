@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "async": "^1.5.1",
-    "bluebird": "^3.1.1",
+    "bluebird": "^3.7.2",
     "openssl-wrapper": "^0.3.0",
     "q": "^1.4.1"
   },
