@@ -4,7 +4,7 @@
   "description": "Retrieves the certificate signature algorithm for a set of hosts using OpenSSL",
   "main": "index.js",
   "dependencies": {
-    "async": "^3.2.3",
+    "async": "^3.2.4",
     "openssl-wrapper": "^0.3.4",
     "bluebird": "^3.7.2",
     "q": "^1.5.1"
